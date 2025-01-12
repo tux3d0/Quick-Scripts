@@ -32,7 +32,6 @@ function system_info() {
 |    IPv6 Address: $(ip addr | grep inet6 | grep -v ::1 | awk '{print $2}' | paste -sd, -)
 |    Ethernet MAC Address: $(ip link | grep ether | awk '{print $2}' | head -n 1)
 |    Wifi MAC Address: $(ip link | grep ether | awk '{print $2}' | tail -n 1)
-|    Subnet Mask: $(ifconfig | grep Mask | awk '{print $4}' | paste -sd, -)
 |    DNS Servers: $(cat /etc/resolv.conf | grep nameserver | awk '{print $2}' | paste -sd, -)clear
 |    Open Ports: $(ss -tuln | grep LISTEN | awk '{print $4}' | cut -d: -f2 | sort -u | paste -sd, -)
 |     
